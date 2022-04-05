@@ -44,6 +44,7 @@ body {
 .op {
   opacity: 0.5;
 }
+
 .loc-matrix {
   border: 1px solid;
   width: 330px;
@@ -73,7 +74,14 @@ body {
   padding: auto;
 }
 .red {
-  background-color: tomato;
+  background-color: rgb(252, 255, 71);
+
+}
+.fire {
+  background-color: red;
+}
+.holt{
+  background-color: aquamarine;
 }
 .lesson-form {
   background-color: coral;

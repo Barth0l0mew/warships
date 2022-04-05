@@ -9,6 +9,28 @@ humans.addEventListener('mouseover',(event)=>{
 humans.addEventListener('mouseout',(event)=>{
     event.target.classList.remove('op');
 })
+comps.addEventListener('mouseover',(event)=>{
+    event.target.classList.add('op')
+})
+
+comps.addEventListener('mouseout',(event)=>{
+    event.target.classList.remove('op');
+})
+comps.addEventListener('click',(event)=>{
+    console.log(event.target.innerHTML)
+   
+    let fire= event.target.innerHTML;
+
+    if (comp.matrixShip[fire[0]][fire[1]]==1){
+        event.target.classList.add('fire');
+        console.log (comp.fire++)
+        
+
+    }else {
+        event.target.classList.add('holt')
+    }
+
+})
 document.addEventListener('mousemove',(event)=>{
     event.preventDefault();
 })
@@ -21,17 +43,20 @@ class Field {
         this.ship={
             coordinatShip: []
         }
-        this.war=[]
+        this.war=[],
+        this.fire=0
     }
     createArea(){
         for (let i=0;i<Field.SIZE;i++){
             let cellMatrix=document.createElement('div');
             cellMatrix.setAttribute('class','form cell-container');
+            
             this.human.appendChild(cellMatrix)
             //getElement('.loc-matrix').appendChild(cellMatrix);
                  for (let j=0;j<Field.SIZE;j++){
                      let cell=document.createElement('div');
                      cell.setAttribute('class','cell-matrix');
+                     cell.setAttribute('value',`${i}${j}`)
                      cell.innerHTML=`${i}${j}`;
                     cellMatrix.appendChild(cell);
                 }   
@@ -69,6 +94,7 @@ class Field {
             for (let j=0; j<Field.SIZE; j++){
                 
                 if (this.matrixShip[i][j]==1){
+                    //console.log (this)
                     this.human.children[i].children[j].classList.add('red')
                     //getElementAll('.cell-container')[i].children[j].classList.add('red')
                 }
@@ -213,3 +239,11 @@ comp.createArea()
 //human.matrix()
 
 comp.random();
+function play (){
+    while (true){
+        if (comp.fire==46 || human.fire==46){
+            breack;
+        } 
+
+    }
+}
